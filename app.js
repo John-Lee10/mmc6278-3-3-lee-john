@@ -18,12 +18,12 @@ app.use(express.static('public'))
 // If no city info or jobs are found,
 // the endpoint should return a 404 status
 app.get('/api/city/:city', async (req,res) => {
-    try{
+    try {
         const cityInfo = await getCityInfo(req.params.city)
         const jobs = await getJobs(req.params.city)
-        res.json({cityInfo, jobs})
-    }catch(err){
-        res.status(404).send('Data Not Found')
+        res.json({cityInfo, jobs}) 
+    } catch(err) {
+        res.status(404).send('Location Not Available')
     }
     }
     )
